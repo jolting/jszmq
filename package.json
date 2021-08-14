@@ -7,8 +7,8 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "check": "tsc -p tsconfig.json --noEmit",
-    "clear": "rm -rf lib/ dist/ coverage/ .nyc_output/",
-    "clear:all": "rm -rf node_modules/ npm-debug.log && npm run clear",
+    "clear": "rimraf lib/ dist/ coverage/ .nyc_output/",
+    "clear:all": "rimraf node_modules/ npm-debug.log && npm run clear",
     "build:test": "npm run clear && tsc -p tsconfig-test.json",
     "test": "npm run build:test && jasmine --reporter=jasmine-console-reporter --config=jasmine.json",
     "coverage": "nyc npm run test && nyc report --reporter=html",
@@ -26,25 +26,25 @@
   "homepage": "https://github.com/zeromq/jszmq#readme",
   "dependencies": {
     "@types/events": "^3.0.0",
-    "@types/lodash": "^4.14.158",
-    "@types/node": "^14.0.26",
+    "@types/lodash": "^4.14.172",
+    "@types/node": "^16.6.1",
     "@types/setasap": "^2.0.0",
-    "@types/ws": "^7.2.6",
-    "assert": "^2.0.0",
-    "buffer": "^5.6.0",
-    "events": "^3.2.0",
+    "@types/ws": "^7.4.7",
+    "buffer": "^6.0.3",
+    "events": "^3.3.0",
     "isomorphic-ws": "^4.0.1",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "setasap": "^2.0.1",
-    "ws": "^7.3.1"
+    "ws": "^8.1.0"
   },
   "devDependencies": {
-    "@types/jasmine": "^3.5.11",
-    "coveralls": "^3.1.0",
-    "jasmine": "^3.6.1",
+    "@types/jasmine": "^3.8.2",
+    "coveralls": "^3.1.1",
+    "jasmine": "^3.8.0",
     "jasmine-console-reporter": "^3.1.0",
     "nyc": "^15.1.0",
-    "ts-node": "^8.10.2",
-    "typescript": "^3.9.7"
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.2.0",
+    "typescript": "^4.3.5"
   }
 }

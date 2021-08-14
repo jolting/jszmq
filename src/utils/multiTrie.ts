@@ -1,4 +1,3 @@
-import * as assert from 'assert'
 import {IEndpoint} from '../types'
 import {Buffer} from 'buffer'
 import {isUndefined} from 'lodash'
@@ -171,7 +170,7 @@ export default class MultiTrie {
             // switch to using the more compact single-node
             // representation
             const node = this.next[newMin - this.minCharacter]
-            assert(node)
+            console.assert(node,"node")
             this.next = [ node ]
             this.count = 1
             this.minCharacter = newMin
@@ -193,7 +192,7 @@ export default class MultiTrie {
         if (size === 0) {
             if (this.endpoints) {
                 const erased = this.endpoints.delete(endpoint)
-                assert(erased)
+                console.assert(erased, "erased")
                 if (this.endpoints.size === 0)
                     this.endpoints = undefined
             }
@@ -211,7 +210,7 @@ export default class MultiTrie {
         let ret = nextNode.remove(prefix, start + 1, size - 1, endpoint)
         if (nextNode.isRedundant)
         {
-            assert(this.count > 0)
+            console.assert(this.count > 0,"this.count > 0")
 
             if (this.count === 1) {
                 this.next = []
